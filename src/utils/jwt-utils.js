@@ -4,7 +4,7 @@ import environmemt from '../config/environment';
 class JWTUtils{
     static generateAccessToken(payload, options ={}){
         const {expiresIn = '1d'} = options;
-        return jwt.sign(payload,environmemt.jwtAccessToeknSecret, {expiresIn})
+        return jwt.sign(payload, environmemt.jwtAccessToeknSecret, { expiresIn });
     }
 
     static generateRefreshToken(payload){
@@ -12,11 +12,11 @@ class JWTUtils{
     }
 
     static verifyAccessToken(accessToken){
-        return jwt.verify(accessToken,environmemt.jwtAccessToeknSecret)
+        return jwt.verify(accessToken, environmemt.jwtAccessToeknSecret);
     }
 
     static verifyRefreshToken(refreshToken){
-        return jwt.verify(refreshToken,environmemt.jwtRefreshTokenSecret)
+        return jwt.verify(refreshToken, environmemt.jwtRefreshTokenSecret);
     }
 }
 
