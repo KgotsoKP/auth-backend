@@ -1,4 +1,5 @@
 import { Sequelize } from "sequelize";
+import { registerModels } from "../models"
 
 class Database{
     constructor(environment, dbConfig) {
@@ -29,6 +30,7 @@ class Database{
         }
 
         //Regsister the models
+        registerModels(this.connection)
 
         //Sync the models
         await this.sync();
